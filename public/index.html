@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Universal AI Assistant - Command Center</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header class="header">
+      <div class="logo">
+        <span class="logo-icon">🤖</span>
+        <h1>Universal AI Assistant</h1>
+      </div>
+      <div class="status" id="status">
+        <span class="status-dot"></span>
+        <span class="status-text">Checking...</span>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Command Input Section -->
+      <section class="command-section">
+        <h2>Command Center</h2>
+        <div class="input-wrapper">
+          <textarea 
+            id="commandInput" 
+            placeholder="Enter your command here...&#10;&#10;Examples:&#10;• Analyze AAPL stock and create a PDF report&#10;• Generate an Android app for expense tracking&#10;• Get weather data and summarize it&#10;• Create a desktop calculator app"
+            rows="6"
+          ></textarea>
+          <div class="input-actions">
+            <button class="btn-primary" onclick="executeCommand()">
+              <span class="btn-icon">⚡</span>
+              Execute Command
+            </button>
+            <button class="btn-secondary" onclick="clearCommand()">
+              <span class="btn-icon">🗑️</span>
+              Clear
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Quick Actions -->
+      <section class="quick-actions">
+        <h3>Quick Actions</h3>
+        <div class="action-grid">
+          <button class="action-card" onclick="quickCommand('Analyze TSLA stock')">
+            <span class="action-icon">📈</span>
+            <span class="action-title">Stock Analysis</span>
+          </button>
+          <button class="action-card" onclick="quickCommand('Generate Android app for todo list')">
+            <span class="action-icon">📱</span>
+            <span class="action-title">Create APK</span>
+          </button>
+          <button class="action-card" onclick="quickCommand('Create a PDF report about AI trends')">
+            <span class="action-icon">📄</span>
+            <span class="action-title">Generate PDF</span>
+          </button>
+          <button class="action-card" onclick="quickCommand('Build desktop app for notes')">
+            <span class="action-icon">💻</span>
+            <span class="action-title">Create EXE</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- Results Section -->
+      <section class="results-section" id="resultsSection" style="display: none;">
+        <div class="results-header">
+          <h3>Results</h3>
+          <button class="btn-icon-only" onclick="closeResults()">✕</button>
+        </div>
+        <div class="results-content" id="resultsContent">
+          <!-- Results will be displayed here -->
+        </div>
+      </section>
+
+      <!-- System Info -->
+      <section class="system-info">
+        <div class="info-grid">
+          <div class="info-card">
+            <div class="info-label">Available Models</div>
+            <div class="info-value" id="modelCount">Loading...</div>
+          </div>
+          <div class="info-card">
+            <div class="info-label">Active Agents</div>
+            <div class="info-value" id="agentCount">Loading...</div>
+          </div>
+          <div class="info-card">
+            <div class="info-label">Memory Usage</div>
+            <div class="info-value" id="memoryUsage">Loading...</div>
+          </div>
+          <div class="info-card">
+            <div class="info-label">API Status</div>
+            <div class="info-value" id="apiStatus">Loading...</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Features -->
+      <section class="features-section">
+        <h3>Capabilities</h3>
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">🎯</div>
+            <h4>Multi-AI Integration</h4>
+            <p>Access 200+ AI models through unified interface</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">📱</div>
+            <h4>APK Generation</h4>
+            <p>Create Android applications from descriptions</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">💻</div>
+            <h4>EXE Creation</h4>
+            <p>Build desktop applications instantly</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">📊</div>
+            <h4>Data Analysis</h4>
+            <p>Analyze stocks, crypto, and market data</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">📄</div>
+            <h4>Document Generation</h4>
+            <p>Create PDFs, reports, and documents</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">🧠</div>
+            <h4>Smart Memory</h4>
+            <p>Context-aware responses with memory</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>Built with ❤️ by NILESH SEEDS | Powered by OpenRouter & OpenAI</p>
+      <p class="footer-links">
+        <a href="https://github.com/nsinvoices1008-lang/universal-ai-assistant" target="_blank">GitHub</a>
+        <span>•</span>
+        <a href="https://docs.google.com/document/d/1_mDNqAlQgUYGDTf_amWwIooFdhYQjMnIHZFL6kzcvWI/edit" target="_blank">Documentation</a>
+      </p>
+    </footer>
+  </div>
+
+  <!-- Loading Overlay -->
+  <div class="loading-overlay" id="loadingOverlay" style="display: none;">
+    <div class="loading-spinner"></div>
+    <p>Processing your command...</p>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
